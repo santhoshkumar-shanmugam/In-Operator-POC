@@ -20,7 +20,7 @@ public class StudentRepoImpl  {
 
     @PersistenceContext
     private EntityManager entityManager;
-    public List<StudentDTO> findStudentById(List<List<Long>> ids){
+    public List<StudentDTO> findStudentByIdOption1(List<List<Long>> ids){
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<StudentDTO> query = cb.createQuery(StudentDTO.class);
         Root<Student> root = query.from(Student.class);

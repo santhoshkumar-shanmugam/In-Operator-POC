@@ -21,4 +21,7 @@ public class Student {
     @Column(name = "name")
     private String name ;
 
+    public Student(String name) {
+        this.name = name;
+    }
 }

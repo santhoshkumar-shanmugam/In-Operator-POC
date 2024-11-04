@@ -10,6 +10,11 @@ import java.util.List;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
+
+    @Query("SELECT new com.santhosh.springbootdemo.dto.StudentDTO(st.id,st.name) FROM Student st JOIN DummyTable dt ON st.id = dt.mapId")
+    List<StudentDTO> findStudents();
+
+
     @Query("SELECT new com.santhosh.springbootdemo.dto.StudentDTO(st.id,st.name) FROM Student st WHERE id in :ids")
     List<StudentDTO> findStudentById(List<Long> ids);
 }
